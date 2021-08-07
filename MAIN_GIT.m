@@ -1,15 +1,21 @@
 dataset_ex = '.';
 while dataset_ex ~= 'y' && dataset_ex ~= 'n'
-    dataset_ex=input('Do you have a dataset? <y/n> ', 's');
+    dataset_ex = input('Do you have a dataset? <y/n> ', 's');
 end
 if dataset_ex == 'y'
-    path=input("Insert the dataset's file path\n", 's');
+    path = input("Insert the dataset's file path\n", 's');
     matrix = readmatrix(path);
 elseif dataset_ex == 'n'
     fprintf('You will use WattsStrogatz Algorithm:\n');
-    n=input('Select number of nodes: ');
-    k=input('Select average degree: ');
-    beta=input('Select rewire probability: ');
+    n = input('Select number of nodes: ');
+    k = 1;
+    while rem(k/n) == 0
+        k = input('Select number of edges: ');
+    end
+    beta = input('Select rewire probability: ');
+    [graph_sw, t] = WattsStrogatz(n, k/n, beta);
+    plot(graph_sw);
+    matrix = make_matrix_smallworld(t);
 end
 
 dataset_type = '.';
