@@ -3,7 +3,7 @@
 ## GENERAL INFORMATION
 This is a brute force algorithm that enables the user to analyze a connectivity matrix extrapolated by MRI.
 The algorithm has three functions:
-* it lines up all nodes from the most relevant to the least one; The centrality is determined by the following equation:\n
+* it lines up all nodes from the most relevant to the least one; The centrality is determined by the following equation:           
   centrality_j = local_degree_j/max(local_degree) + local_betweenness_j/max(local_betweenness)
 * it reduces the order of the matrix mantaining a variation of 10% of global degree OR small-worldness;
 * for each node of the reduced matrix, the user can see witch nodes of the original matrix have been summed up.
