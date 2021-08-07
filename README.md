@@ -33,4 +33,4 @@ Also the following function can be useful
 If the user does not have a real dataset extrapolated by MR, they can use the function WattsStrogatz.m to create a random connectivity matrix. I suggest a probability of rewiring set between 0.5 and 0.75.
 
 ## OTHER INFORMATION
-The algorithm has been created with the AAL atlas in mind (90 nodes) and the function INTtoREGION.m can be used only with this particular atlas. If other atlases are used, make sure to modify this function in order to be able to use it for the parcellation of interest.
+The algorithm has been created with the AAL atlas in mind (90 nodes) and the function NODEtoREGION.m can be used only with this particular atlas. If other atlases are used, make sure to modify this function in order to be able to use it for the parcellation of interest.
