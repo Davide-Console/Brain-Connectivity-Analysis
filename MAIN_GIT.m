@@ -121,7 +121,80 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref == 'd' && dataset_mo
     
 end
 
+%% 2
 if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref == 'd' && dataset_mod == 'd') || (dataset_ex == 'n' && dataset_ref =='d' && dataset_mod == 'd')
+
+    N = n;
+    k = nnz(matrix)/2;
+
+    % reference degree
+    d_ref_vector = degrees_und(matrix);
+    d_ref = mean(d_ref_vector);
+    fprintf("Il coefficiente di degree è: %f\n", d_ref);
+
+    % hubs' analysis
+    local_betweenness = betweenness_bin(matrix);
+    local_betweenness = local_betweenness ./ max(local_betweenness);
+
+    local_degree = degrees_und(matrix);
+    local_degree = (local_degree ./ max(local_degree))';
+
+    hubsA = local_degree + local_betweenness;
+    hubsB = [(1:n)', hubsA];
+    [AS,IX] = sort(hubsA, 'descend');
+    hubs_descend = hubsB(IX,:);
+
+    % variables
+    new_matrix_d=matrix;
+    x=n;
+    d_vector=[d_ref];
+    error_d_vector = [0];
+    A = [1:1:n]';
+    indexes = string(A);
+    indexes = string(".")+ indexes + string(".  ");
+    indexes_d = indexes;
+
+    % degree check
+    n=N;
+    x=n;
+    for i = 1:x
+        matrix_prec = new_matrix_d;
+
+        [new_matrix_d, indexes_d, d, error_d] = delete_nodes_d(new_matrix_d, n, d_ref, indexes_d);
+
+        if nnz(new_matrix_d) == 0
+            new_matrix_d = matrix_prec;
+            break;
+        end
+
+        n = n-1;
+        d_vector = [d_vector d];
+        error_d_vector = [error_d_vector error_d];
+    end
+    indexes_d = indexes_d(1:n);
+    edges_d = n;
+
+    vector_edges = [N:-1:edges_d];
+
+    figure,
+    plot(vector_edges, d_vector,'b', 'LineWidth', 2);
+    set(gca, 'XDir','reverse');
+    title('Andamento Degree');
+
+    %controllo matrice ridotta con degree
+    test = 0;
+    hubs_str_d = hubs_descend(1:edges_d, 1)';
+    hubs_str_d = string(".") + string(hubs_str_d)+ string(".");
+    count_d = zeros(edges_d, 1);
+    for i = 1:edges_d
+        for j = 1:edges_d
+            test = contains(indexes_d(i), hubs_str_d(j));
+            count_d(i) = count_d(i)+test;
+        end
+    end
+    
+    regions_array_d=NODEtoREGION(indexes_d);
+   
 end
 
 if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref =='s' && dataset_mod == 'c') || (dataset_ex == 'n' && dataset_ref =='s' && dataset_mod == 'c')
