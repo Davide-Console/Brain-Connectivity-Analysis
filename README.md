@@ -32,7 +32,7 @@ Also the following function can be useful to create a synthetic matrix:
 
 ## GUIDELINES
 At first the user must choose some settings:
-* tell if there is a dataset <y/n>. If <y>, specify it by inserting the file path; if <n>, generate one using WattsStrogatz algorithm by specifying number of nodes, number of edges and rewire probability.
+* tell if there is a dataset <y/n>. If <y\>, specify it by inserting the file path; if <n>, generate one using WattsStrogatz algorithm by specifying number of nodes, number of edges and rewire probability.
 * choose weather the dataset must be weighted or binarized <b/w>. If <b>, set a threshold value; if <w>, the abolute values of the dataset's elements are used.
 * choose the reference parameter between degree and small-worldness <d/s>. If <d>, the parameter will be the degree; if <d>, the parameter will be the small-worldness.
 * choose the modality of reduction <c/d>. If <c>, two nodes will be summed up for each iteration; if <d>, the least significant node will be deleted.
