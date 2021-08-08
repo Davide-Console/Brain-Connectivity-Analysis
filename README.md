@@ -8,7 +8,6 @@ The algorithm has three functions:
 * it reduces the order of the matrix mantaining a variation of 10% of global degree OR small-worldness by summing or deleting nodes;
 * for each node of the reduced matrix, the user can see which nodes of the original matrix have been summed up (if sum of nodes) or which nodes are left (if deletion of nodes)
 
-The reduction can be done both by deleting or summing the nodes, In the first case
 ## REQUIREMENTS
 The needed libraries are the following:
 
@@ -30,6 +29,13 @@ These functions from Brain Connectivity Toolbox are also needed:
 
 Also the following function can be useful to create a synthetic matrix:
 * WattsStrogatz.m
+
+## GUIDELINES
+At first the user must choose some settings:
+* tell if there is a dataset <y/n>. If <y>, specify it by inserting the file path; if <n>, generate one using WattsStrogatz algorithm by specifying number of nodes, number of edges and rewire probability.
+* choose weather the dataset must be weighted or binarized <b/w>. If <b>, set a threshold value; if <w>, the abolute values of the dataset's elements are used.
+* choose the reference parameter between degree and small-worldness <d/s>. If <d>, the parameter will be the degree; if <s>, the parameter will be the small-worldness.
+* choose the modality of reduction <c/d>. If <c>, two nodes will be summed up for each iteration; if <d>, the least significant node will be deleted.
 
 ## DATASET
 The dataset must be a connectivity matrix with elements calculated using Pearson's linear correlation. All the values must be set between -1 and 1 and the main diagonal must be set to 1.
