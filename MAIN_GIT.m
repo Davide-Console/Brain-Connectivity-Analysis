@@ -266,7 +266,7 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref =='s' && dataset_mod
     set(gca, 'XDir','reverse');
     title('Andamento SmallWorldness');
 
-    regions_array_d=NODEtoREGION(indexes_d);
+    regions_array_sw=NODEtoREGION(indexes_sw);
     
 end
 
@@ -418,7 +418,15 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='d' && dataset_mod 
             test = contains(indexes_d(i), hubs_str_d(j));
             count_d(i) = count_d(i)+test;
         end
+    end
 
+    figure,
+    plot(vector_edges, d_vector,'b', 'LineWidth', 2);
+    set(gca, 'XDir','reverse');
+    title('Andamento Degree');
+    
+    regions_array_d=NODEtoREGION(indexes_d);
+    
 end
 
 %% 6
@@ -497,7 +505,15 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='d' && dataset_mod 
             test = contains(indexes_d(i), hubs_str_d(j));
             count_d(i) = count_d(i)+test;
         end
-
+    end
+    
+    figure,
+    plot(vector_edges, d_vector,'r', 'LineWidth', 2);
+    set(gca, 'XDir','reverse');
+    title('Andamento Degree');
+    
+    regions_array_d=NODEtoREGION(indexes_d);
+    
 end
 
 %% 7
@@ -574,6 +590,8 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='s' && dataset_mod 
     plot(vector_edges, sw_vector,'r', 'LineWidth', 2);
     set(gca, 'XDir','reverse');
     title('Andamento SmallWorldness');
+    
+    regions_array_sw=NODEtoREGION(indexes_sw);
 
 end
 
@@ -651,5 +669,7 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='s' && dataset_mod 
     plot(vector_edges, sw_vector,'r', 'LineWidth', 2);
     set(gca, 'XDir','reverse');
     title('Andamento SmallWorldness');
-
+    
+    regions_array_sw=NODEtoREGION(indexes_sw);
+    
 end
