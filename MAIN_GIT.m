@@ -68,7 +68,7 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref == 'd' && dataset_mo
     hubsA = local_degree + local_betweenness;
     hubsB = [(1:n)', hubsA];
     [AS,IX] = sort(hubsA, 'descend');
-    hubs_descend = hubsB(IX,:);
+    hubs_descend = hubsB(IX,:)
 
     % variables
     new_matrix_d=matrix;
@@ -149,7 +149,7 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref == 'd' && dataset_mo
     hubsA = local_degree + local_betweenness;
     hubsB = [(1:n)', hubsA];
     [AS,IX] = sort(hubsA, 'descend');
-    hubs_descend = hubsB(IX,:);
+    hubs_descend = hubsB(IX,:)
 
     % variables
     new_matrix_d=matrix;
@@ -228,7 +228,7 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref =='s' && dataset_mod
     hubsA = local_degree + local_betweenness;
     hubsB = [(1:n)', hubsA];
     [AS,IX] = sort(hubsA, 'descend');
-    hubs_descend = hubsB(IX,:);
+    hubs_descend = hubsB(IX,:)
 
     % variables
     new_matrix_sw=matrix;
@@ -306,7 +306,7 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref =='s' && dataset_mod
     hubsA = local_degree + local_betweenness;
     hubsB = [(1:n)', hubsA];
     [AS,IX] = sort(hubsA, 'descend');
-    hubs_descend = hubsB(IX,:);
+    hubs_descend = hubsB(IX,:)
 
     % variables
     new_matrix_sw=matrix;
@@ -496,7 +496,7 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='d' && dataset_mod 
     for i = 1:x
         matrix_prec = new_matrix_d;
 
-        [new_matrix_d, indexes_d, d, error_d] = delete_nodes_d(new_matrix_d, n, d_ref, indexes_d);
+        [new_matrix_d, indexes_d, d, error_d] = delete_nodes_d_wei(new_matrix_d, n, d_ref, indexes_d);
 
         if nnz(new_matrix_d) == 0
             new_matrix_d = matrix_prec;
@@ -664,7 +664,7 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='s' && dataset_mod 
 
         matrix_prec = new_matrix_sw;
 
-        [new_matrix_sw, indexes_sw, smallworldness, error_sw] = delete_nodes_sw(new_matrix_sw, n, sw_ref, indexes_sw);
+        [new_matrix_sw, indexes_sw, smallworldness, error_sw] = delete_nodes_sw_wei(new_matrix_sw, n, sw_ref, indexes_sw);
 
         if nnz(new_matrix_sw) == 0
             new_matrix_sw = matrix_prec;

@@ -15,7 +15,7 @@ clustering_vector = clustering_coef_wu(matrix);
 clustering_coeff = mean(clustering_vector);
 
 %% calcolo smallworldness matrice small world
-matrix_rnd = rnd_matrix_from_DGmatrix(matrix);
+matrix_rnd = rnd_matrix_from_data(matrix);
 
 % path length matrice random
 lengths_matrix_rnd = weight_conversion(matrix_rnd, 'lengths');
