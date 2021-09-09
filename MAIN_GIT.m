@@ -119,7 +119,12 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref == 'd' && dataset_mo
         end
     end
     
-    regions_array_d=NODEtoREGION(indexes_d);
+    figure
+    im = imagesc(1:length(new_matrix_d(:, 1)), 1:length(new_matrix_d(1, :)), new_matrix_d);
+    hAxes = gca;
+    colormap(hAxes, pink(2000))
+    
+    regions_array_d=NODEtoREGION(indexes_d)
     
 end
 
@@ -194,7 +199,12 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref == 'd' && dataset_mo
         end
     end
     
-    regions_array_d=NODEtoREGION(indexes_d);
+    figure
+    im = imagesc(1:length(new_matrix_d(:, 1)), 1:length(new_matrix_d(1, :)), new_matrix_d);
+    hAxes = gca;
+    colormap(hAxes, pink(2000))
+    
+    regions_array_d=NODEtoREGION(indexes_d)
    
 end
 
@@ -250,6 +260,12 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref =='s' && dataset_mod
 
     vector_edges = [N:-1:edges_sw];
 
+    figure,
+    plot(vector_edges, sw_vector,'r', 'LineWidth', 2);
+    set(gca, 'XDir','reverse');
+    title('Andamento SmallWorldness');
+
+    
     test = 0
     hubs_str_sw = hubs_descend(1:edges_sw, 1)';
     hubs_str_sw = string(".") + string(hubs_str_sw) + string(".");
@@ -261,12 +277,12 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref =='s' && dataset_mod
         end
     end
 
-    figure,
-    plot(vector_edges, sw_vector,'r', 'LineWidth', 2);
-    set(gca, 'XDir','reverse');
-    title('Andamento SmallWorldness');
-
-    regions_array_sw=NODEtoREGION(indexes_sw);
+    figure
+    im = imagesc(1:length(new_matrix_sw(:, 1)), 1:length(new_matrix_sw(1, :)), new_matrix_sw);
+    hAxes = gca;
+    colormap(hAxes, pink(2000))
+    
+    regions_array_sw=NODEtoREGION(indexes_sw)
     
 end
 
@@ -322,6 +338,11 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref =='s' && dataset_mod
 
     vector_edges = [N:-1:edges_sw];
 
+    figure,
+    plot(vector_edges, sw_vector,'r', 'LineWidth', 2);
+    set(gca, 'XDir','reverse');
+    title('Andamento SmallWorldness');
+    
     test = 0
     hubs_str_sw = hubs_descend(1:edges_sw, 1)';
     hubs_str_sw = string(".") + string(hubs_str_sw) + string(".");
@@ -333,12 +354,12 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref =='s' && dataset_mod
         end
     end
 
-    figure,
-    plot(vector_edges, sw_vector,'r', 'LineWidth', 2);
-    set(gca, 'XDir','reverse');
-    title('Andamento SmallWorldness');
-
-    regions_array_sw=NODEtoREGION(indexes_sw);
+    figure
+    im = imagesc(1:length(new_matrix_sw(:, 1)), 1:length(new_matrix_sw(1, :)), new_matrix_sw);
+    hAxes = gca;
+    colormap(hAxes, pink(2000))
+    
+    regions_array_sw=NODEtoREGION(indexes_sw)
     
 end
 
@@ -408,7 +429,7 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='d' && dataset_mod 
     plot(vector_edges, d_vector,'b', 'LineWidth', 2);
     set(gca, 'XDir','reverse');
     title('Andamento Degree');
-
+    
     test = 0;
     hubs_str_d = hubs_descend(1:edges_d, 1)';
     hubs_str_d = string(".") + string(hubs_str_d)+ string(".");
@@ -419,13 +440,13 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='d' && dataset_mod 
             count_d(i) = count_d(i)+test;
         end
     end
-
-    figure,
-    plot(vector_edges, d_vector,'b', 'LineWidth', 2);
-    set(gca, 'XDir','reverse');
-    title('Andamento Degree');
     
-    regions_array_d=NODEtoREGION(indexes_d);
+    figure
+    im = imagesc(1:length(new_matrix_d(:, 1)), 1:length(new_matrix_d(1, :)), new_matrix_d);
+    hAxes = gca;
+    colormap(hAxes, pink(2000))
+    
+    regions_array_d=NODEtoREGION(indexes_d)
     
 end
 
@@ -495,7 +516,7 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='d' && dataset_mod 
     plot(vector_edges, d_vector,'b', 'LineWidth', 2);
     set(gca, 'XDir','reverse');
     title('Andamento Degree');
-
+    
     test = 0;
     hubs_str_d = hubs_descend(1:edges_d, 1)';
     hubs_str_d = string(".") + string(hubs_str_d)+ string(".");
@@ -505,14 +526,14 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='d' && dataset_mod 
             test = contains(indexes_d(i), hubs_str_d(j));
             count_d(i) = count_d(i)+test;
         end
-    end
+    end    
+
+    figure
+    im = imagesc(1:length(new_matrix_d(:, 1)), 1:length(new_matrix_d(1, :)), new_matrix_d);
+    hAxes = gca;
+    colormap(hAxes, pink(2000))
     
-    figure,
-    plot(vector_edges, d_vector,'r', 'LineWidth', 2);
-    set(gca, 'XDir','reverse');
-    title('Andamento Degree');
-    
-    regions_array_d=NODEtoREGION(indexes_d);
+    regions_array_d=NODEtoREGION(indexes_d)
     
 end
 
@@ -575,6 +596,11 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='s' && dataset_mod 
 
     vector_edges = [N:-1:edges_sw];
 
+    figure,
+    plot(vector_edges, sw_vector,'r', 'LineWidth', 2);
+    set(gca, 'XDir','reverse');
+    title('Andamento SmallWorldness');
+    
     test = 0
     hubs_str_sw = hubs_descend(1:edges_sw, 1)';
     hubs_str_sw = string(".") + string(hubs_str_sw) + string(".");
@@ -586,12 +612,12 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='s' && dataset_mod 
         end
     end
 
-    figure,
-    plot(vector_edges, sw_vector,'r', 'LineWidth', 2);
-    set(gca, 'XDir','reverse');
-    title('Andamento SmallWorldness');
+    figure
+    im = imagesc(1:length(new_matrix_sw(:, 1)), 1:length(new_matrix_sw(1, :)), new_matrix_sw);
+    hAxes = gca;
+    colormap(hAxes, pink(2000))
     
-    regions_array_sw=NODEtoREGION(indexes_sw);
+    regions_array_sw=NODEtoREGION(indexes_sw)
 
 end
 
@@ -654,6 +680,11 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='s' && dataset_mod 
 
     vector_edges = [N:-1:edges_sw];
 
+    figure,
+    plot(vector_edges, sw_vector,'r', 'LineWidth', 2);
+    set(gca, 'XDir','reverse');
+    title('Andamento SmallWorldness');
+    
     test = 0
     hubs_str_sw = hubs_descend(1:edges_sw, 1)';
     hubs_str_sw = string(".") + string(hubs_str_sw) + string(".");
@@ -665,11 +696,11 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='s' && dataset_mod 
         end
     end
 
-    figure,
-    plot(vector_edges, sw_vector,'r', 'LineWidth', 2);
-    set(gca, 'XDir','reverse');
-    title('Andamento SmallWorldness');
+    figure
+    im = imagesc(1:length(new_matrix_sw(:, 1)), 1:length(new_matrix_sw(1, :)), new_matrix_sw);
+    hAxes = gca;
+    colormap(hAxes, pink(2000))
     
-    regions_array_sw=NODEtoREGION(indexes_sw);
+    regions_array_sw=NODEtoREGION(indexes_sw)
     
 end
