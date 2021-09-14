@@ -1,4 +1,4 @@
-function [sol_matrix, sol_indexes, sw_sol, error]=collapse_nodes_sw(MC, n, sw_ref, indexes)
+function [sol_matrix, sol_indexes, sw_sol, error]=collapse_nodes_sw(MC, n, sw_ref, indexes, set_variation)
 
 new_matrix=zeros(n-1);
 sol_matrix=zeros(n-1);
@@ -40,7 +40,7 @@ for i=1:n-1
         n_edges=nnz(new_matrix)/2;
         new_sw = sw(new_matrix, n-1, n_edges);
         
-        if (abs(sw_ref-new_sw))/sw_ref<0.001 && abs(new_sw-sw_ref)<abs(sw_sol-sw_ref)
+        if (abs(sw_ref-new_sw))/sw_ref<set_variation && abs(new_sw-sw_ref)<abs(sw_sol-sw_ref)
             error = (abs(sw_ref-new_sw))/sw_ref;
             sw_sol=new_sw;
             sol_matrix=new_matrix;

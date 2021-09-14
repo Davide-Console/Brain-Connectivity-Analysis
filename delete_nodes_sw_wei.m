@@ -1,4 +1,4 @@
-function [sol_matrix, sol_indexes, sw_sol, error]=delete_nodes_sw_wei(MC, n, sw_ref, indexes)
+function [sol_matrix, sol_indexes, sw_sol, error]=delete_nodes_sw_wei(MC, n, sw_ref, indexes, set_variation)
 
 % inizializzazione elementi
 new_matrix=zeros(n-1);
@@ -30,7 +30,7 @@ for i=1:n
     
     % se l'errore è inferiore al 10% e migliore al precedente, salvo
     % la matrice, la sua small-worldness
-    if (abs(sw_ref-new_sw))/sw_ref<0.10 && abs(new_sw-sw_ref)<abs(sw_sol-sw_ref)
+    if (abs(sw_ref-new_sw))/sw_ref<set_variation && abs(new_sw-sw_ref)<abs(sw_sol-sw_ref)
         error = (abs(sw_ref-new_sw))/sw_ref;
         sw_sol=new_sw;
         sol_matrix=new_matrix;

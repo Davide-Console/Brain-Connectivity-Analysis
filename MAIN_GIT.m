@@ -23,11 +23,11 @@ if dataset_ex == 'n'
     dataset_type = 'b';
 end
 while dataset_type ~= 'b' && dataset_type ~= 'w'
-    dataset_type=input('The dataset must be studied in binary or weighted form? <b/w> ', 's');
+    dataset_type = input('The dataset must be studied in binary or weighted form? <b/w> ', 's');
 end
 if dataset_type == 'b'
     if dataset_ex == 'y'
-        threshold_value=input('Set the threshold value: ');
+        threshold_value = input('Set the threshold value: ');
         matrix = threshold(matrix, threshold_value);
         n = size(matrix, 1);
         I = eye(n);
@@ -39,12 +39,17 @@ end
 
 dataset_ref = '.';
 while dataset_ref ~= 'd' && dataset_ref ~= 's'
-    dataset_ref=input('Which reference parameter do you want to use? <d/s> ', 's');
+    dataset_ref = input('Which reference parameter do you want to use? <d/s> ', 's');
 end
 
 dataset_mod = '.';
 while dataset_mod ~= 'c' && dataset_mod ~= 'd'
-    dataset_mod=input('Do you want to collapse or delete nodes? <c/d> ', 's');
+    dataset_mod = input('Do you want to collapse or delete nodes? <c/d> ', 's');
+end
+
+set_variation = '.';
+while set_variation > 1 || set_variation < 0
+    set_variation = input("Set the variation's limit: ");
 end
 
 %% 1
@@ -86,7 +91,7 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref == 'd' && dataset_mo
     for i = 1:x
         matrix_prec = new_matrix_d;
 
-        [new_matrix_d, indexes_d, d, error_d] = collapse_nodes_d(new_matrix_d, n, d_ref, indexes_d);
+        [new_matrix_d, indexes_d, d, error_d] = collapse_nodes_d(new_matrix_d, n, d_ref, indexes_d, set_variation);
 
         if nnz(new_matrix_d) == 0
             new_matrix_d = matrix_prec;
@@ -167,7 +172,7 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref == 'd' && dataset_mo
     for i = 1:x
         matrix_prec = new_matrix_d;
 
-        [new_matrix_d, indexes_d, d, error_d] = delete_nodes_d(new_matrix_d, n, d_ref, indexes_d);
+        [new_matrix_d, indexes_d, d, error_d] = delete_nodes_d(new_matrix_d, n, d_ref, indexes_d, set_variation);
 
         if nnz(new_matrix_d) == 0
             new_matrix_d = matrix_prec;
@@ -244,7 +249,7 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref =='s' && dataset_mod
     for i = 1:x
         matrix_prec = new_matrix_sw;
 
-        [new_matrix_sw, indexes_sw, smallworldness, error_sw] = collapse_nodes_sw(new_matrix_sw, n, sw_ref, indexes_sw);
+        [new_matrix_sw, indexes_sw, smallworldness, error_sw] = collapse_nodes_sw(new_matrix_sw, n, sw_ref, indexes_sw, set_variation);
 
         if nnz(new_matrix_sw) == 0
             new_matrix_sw = matrix_prec;
@@ -322,7 +327,7 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref =='s' && dataset_mod
     for i = 1:x
         matrix_prec = new_matrix_sw;
 
-        [new_matrix_sw, indexes_sw, smallworldness, error_sw] = delete_nodes_sw(new_matrix_sw, n, sw_ref, indexes_sw);
+        [new_matrix_sw, indexes_sw, smallworldness, error_sw] = delete_nodes_sw(new_matrix_sw, n, sw_ref, indexes_sw, set_variation);
 
         if nnz(new_matrix_sw) == 0
             new_matrix_sw = matrix_prec;
@@ -409,7 +414,7 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='d' && dataset_mod 
     for i = 1:x
         matrix_prec = new_matrix_d;
 
-        [new_matrix_d, indexes_d, d, error_d] = collapse_nodes_d_wei(new_matrix_d, n, d_ref, indexes_d);
+        [new_matrix_d, indexes_d, d, error_d] = collapse_nodes_d_wei(new_matrix_d, n, d_ref, indexes_d, set_variation);
 
         if nnz(new_matrix_d) == 0
             new_matrix_d = matrix_prec;
@@ -496,7 +501,7 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='d' && dataset_mod 
     for i = 1:x
         matrix_prec = new_matrix_d;
 
-        [new_matrix_d, indexes_d, d, error_d] = delete_nodes_d_wei(new_matrix_d, n, d_ref, indexes_d);
+        [new_matrix_d, indexes_d, d, error_d] = delete_nodes_d_wei(new_matrix_d, n, d_ref, indexes_d, set_variation);
 
         if nnz(new_matrix_d) == 0
             new_matrix_d = matrix_prec;
@@ -580,7 +585,7 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='s' && dataset_mod 
 
         matrix_prec = new_matrix_sw;
 
-        [new_matrix_sw, indexes_sw, smallworldness, error_sw] = collapse_nodes_sw_wei(new_matrix_sw, n, sw_ref, indexes_sw);
+        [new_matrix_sw, indexes_sw, smallworldness, error_sw] = collapse_nodes_sw_wei(new_matrix_sw, n, sw_ref, indexes_sw, set_variation);
 
         if nnz(new_matrix_sw) == 0
             new_matrix_sw = matrix_prec;
@@ -664,7 +669,7 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='s' && dataset_mod 
 
         matrix_prec = new_matrix_sw;
 
-        [new_matrix_sw, indexes_sw, smallworldness, error_sw] = delete_nodes_sw_wei(new_matrix_sw, n, sw_ref, indexes_sw);
+        [new_matrix_sw, indexes_sw, smallworldness, error_sw] = delete_nodes_sw_wei(new_matrix_sw, n, sw_ref, indexes_sw, set_variation);
 
         if nnz(new_matrix_sw) == 0
             new_matrix_sw = matrix_prec;
