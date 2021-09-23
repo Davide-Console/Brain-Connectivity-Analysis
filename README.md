@@ -12,20 +12,7 @@ The algorithm has three functions:
 The needed libraries are the following:
 
 * Statistics and Machine Learning Toolbox (version 12.0)
-
-These functions from Brain Connectivity Toolbox are also needed:
-
-* betweenness_bin.m
-* betweenness_wei.m
-* charpath.m
-* clustering_coef_bu.m
-* clustering_coef_wu.m
-* degrees_und.m
-* distance_bin.m
-* distance_wei.m
-* makerandCIJ_und.m
-* strengths_und.m
-* weight_conversion.m
+* Brain Connectivity Toolbox (version 1.1.1.0)
 
 Also the following function can be useful to create a synthetic matrix:
 * WattsStrogatz.m
