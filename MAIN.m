@@ -75,7 +75,7 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref == 'd' && dataset_mo
     hubsA = local_degree + local_betweenness;
     hubsB = [(1:n)', hubsA];
     [AS,IX] = sort(hubsA, 'descend');
-    hubs_descend = hubsB(IX,:)
+    hubs_descend = hubsB(IX,:);
 
     % variables
     new_matrix_d=matrix;
@@ -156,7 +156,7 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref == 'd' && dataset_mo
     hubsA = local_degree + local_betweenness;
     hubsB = [(1:n)', hubsA];
     [AS,IX] = sort(hubsA, 'descend');
-    hubs_descend = hubsB(IX,:)
+    hubs_descend = hubsB(IX,:);
 
     % variables
     new_matrix_d=matrix;
@@ -235,7 +235,7 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref =='s' && dataset_mod
     hubsA = local_degree + local_betweenness;
     hubsB = [(1:n)', hubsA];
     [AS,IX] = sort(hubsA, 'descend');
-    hubs_descend = hubsB(IX,:)
+    hubs_descend = hubsB(IX,:);
 
     % variables
     new_matrix_sw=matrix;
@@ -313,7 +313,7 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref =='s' && dataset_mod
     hubsA = local_degree + local_betweenness;
     hubsB = [(1:n)', hubsA];
     [AS,IX] = sort(hubsA, 'descend');
-    hubs_descend = hubsB(IX,:)
+    hubs_descend = hubsB(IX,:);
 
     % variables
     new_matrix_sw=matrix;
@@ -396,7 +396,7 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='d' && dataset_mod 
     hubsA = local_degree + local_betweenness;
     hubsB = [(1:n)', hubsA];
     [AS,IX] = sort(hubsA, 'descend');
-    hubs_descend = hubsB(IX,:)
+    hubs_descend = hubsB(IX,:);
 
     % variables
     new_matrix_d = matrix;
@@ -483,7 +483,7 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='d' && dataset_mod 
     hubsA = local_degree + local_betweenness;
     hubsB = [(1:n)', hubsA];
     [AS,IX] = sort(hubsA, 'descend');
-    hubs_descend = hubsB(IX,:)
+    hubs_descend = hubsB(IX,:);
 
     % variables
     new_matrix_d = matrix;
@@ -568,7 +568,7 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='s' && dataset_mod 
     hubsA = local_degree + local_betweenness;
     hubsB = [(1:n)', hubsA];
     [AS,IX] = sort(hubsA, 'descend');
-    hubs_descend = hubsB(IX,:)
+    hubs_descend = hubsB(IX,:);
 
     % variables
     new_matrix_sw = matrix;
@@ -652,7 +652,7 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='s' && dataset_mod 
     hubsA = local_degree + local_betweenness;
     hubsB = [(1:n)', hubsA];
     [AS,IX] = sort(hubsA, 'descend');
-    hubs_descend = hubsB(IX,:)
+    hubs_descend = hubsB(IX,:);
 
     % variables
     new_matrix_sw = matrix;
@@ -708,21 +708,23 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='s' && dataset_mod 
     hAxes = gca;
     colormap(hAxes, pink(2000))
     
-    regions_array_sw=NODEtoREGION(indexes_sw)
+    regions_array_sw=NODEtoREGION(indexes_sw);
     
 end
 
-
+toptenhubs = "." + string(hubs_descend)+ "."
+toptenhubs = NODEtoREGION(toptenhubs)
 matrix
 if dataset_ref == 's'
     new_matrix_sw
     error_sw
-    hubs_str_sw
+    hubs_descend
     regions_array_sw
 elseif dataset_ref == 'd'
     new_matrix_d
     error_d
     hubs_str_d
+    hubs_descend
     regions_array_d
 end
 
