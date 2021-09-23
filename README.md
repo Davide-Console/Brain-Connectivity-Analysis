@@ -6,7 +6,7 @@ The algorithm has three functions:
 * it lines up all nodes from the most relevant to the least one; the centrality is determined by the following equation:           
   centrality_j = local_degree_j/max(local_degree) + local_betweenness_j/max(local_betweenness)
 * it reduces the order of the matrix mantaining a maximum variation of global degree OR small-worldness choose by the user by summing or deleting nodes;
-* for each node of the reduced matrix, the user can see which nodes of the original matrix have been summed up (if sum of nodes) or which nodes are left (if deletion of nodes)
+* the user can see which nodes of the original matrix have been summed up (if sum of nodes) or which nodes are left (if deletion of nodes)
 
 ## REQUIREMENTS
 The needed libraries are the following:
