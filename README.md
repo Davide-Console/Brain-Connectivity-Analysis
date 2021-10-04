@@ -5,7 +5,7 @@ This is a brute force algorithm that enables the user to analyze a connectivity 
 The algorithm has three functions:
 * it lines up all nodes from the most significant to the least one; the centrality is determined by the following equation:       
   centrality_j = local_degree_j/max(local_degree) + local_betweenness_j/max(local_betweenness)
-* it reduces the order of the matrix mantaining a maximum variation of global degree OR small-worldness choose by the user by summing or deleting nodes;
+* it reduces the order of the matrix mantaining a maximum variation of global degree OR small-worldness chosen by the user by summing or deleting nodes;
 * the user can see which nodes of the original matrix have been summed up (if sum of nodes) or which nodes are left (if deletion of nodes)
 
 ## REQUIREMENTS
