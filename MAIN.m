@@ -131,7 +131,8 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref == 'd' && dataset_mo
     hAxes = gca;
     colormap(hAxes, pink(2000))
     
-    regions_array_d=NODEtoREGION(indexes_d)
+    hubs_str_d=NODEtoREGION(hubs_str_d');
+    regions_array_d=NODEtoREGION(indexes_d);
     
 end
 
@@ -211,7 +212,8 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref == 'd' && dataset_mo
     hAxes = gca;
     colormap(hAxes, pink(2000))
     
-    regions_array_d=NODEtoREGION(indexes_d)
+    hubs_str_d=NODEtoREGION(hubs_str_d');
+    regions_array_d=NODEtoREGION(indexes_d);
    
 end
 
@@ -289,7 +291,8 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref =='s' && dataset_mod
     hAxes = gca;
     colormap(hAxes, pink(2000))
     
-    regions_array_sw=NODEtoREGION(indexes_sw)
+    hubs_str_sw=NODEtoREGION(hubs_str_sw');
+    regions_array_sw=NODEtoREGION(indexes_sw);
     
 end
 
@@ -365,8 +368,9 @@ if (dataset_ex == 'y' && dataset_type == 'b' && dataset_ref =='s' && dataset_mod
     im = imagesc(1:length(new_matrix_sw(:, 1)), 1:length(new_matrix_sw(1, :)), new_matrix_sw);
     hAxes = gca;
     colormap(hAxes, pink(2000))
-    
-    regions_array_sw=NODEtoREGION(indexes_sw)
+
+    hubs_str_sw=NODEtoREGION(hubs_str_sw');
+    regions_array_sw=NODEtoREGION(indexes_sw);
     
 end
 
@@ -453,7 +457,8 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='d' && dataset_mod 
     hAxes = gca;
     colormap(hAxes, pink(2000))
     
-    regions_array_d=NODEtoREGION(indexes_d)
+    hubs_str_d=NODEtoREGION(hubs_str_d');
+    regions_array_d=NODEtoREGION(indexes_d);
     
 end
 
@@ -540,7 +545,8 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='d' && dataset_mod 
     hAxes = gca;
     colormap(hAxes, pink(2000))
     
-    regions_array_d=NODEtoREGION(indexes_d)
+    hubs_str_d=NODEtoREGION(hubs_str_d');
+    regions_array_d=NODEtoREGION(indexes_d);
     
 end
 
@@ -624,7 +630,8 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='s' && dataset_mod 
     hAxes = gca;
     colormap(hAxes, pink(2000))
     
-    regions_array_sw=NODEtoREGION(indexes_sw)
+    hubs_str_sw=NODEtoREGION(hubs_str_sw');
+    regions_array_sw=NODEtoREGION(indexes_sw);
 
 end
 
@@ -708,23 +715,21 @@ if dataset_ex == 'y' && dataset_type == 'w' && dataset_ref =='s' && dataset_mod 
     hAxes = gca;
     colormap(hAxes, pink(2000))
     
+    hubs_str_sw=NODEtoREGION(hubs_str_sw');
     regions_array_sw=NODEtoREGION(indexes_sw);
     
 end
 
-toptenhubs = "." + string(hubs_descend)+ "."
-toptenhubs = NODEtoREGION(toptenhubs)
 matrix
 if dataset_ref == 's'
     new_matrix_sw
     error_sw
-    hubs_descend
+    hubs_str_sw
     regions_array_sw
 elseif dataset_ref == 'd'
     new_matrix_d
     error_d
     hubs_str_d
-    hubs_descend
     regions_array_d
 end
 
