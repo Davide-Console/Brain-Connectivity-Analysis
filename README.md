@@ -1,4 +1,4 @@
-# Brain Connectivity Analysis
+# Brain Connectivity Analysis for Bachelor Degree Thesis
 
 ## GENERAL INFORMATION
 This is a brute force algorithm that enables the user to analyze a connectivity matrix extrapolated by fMRI.
