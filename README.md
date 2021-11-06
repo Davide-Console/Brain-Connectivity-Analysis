@@ -1,5 +1,7 @@
 # Brain Connectivity Analysis for Bachelor Degree Thesis
 
+- ###  Davide Console ([@Davide-Console](https://github.com/Davide-Console)) <br> davide.console@mail.polimi.it
+
 ## GENERAL INFORMATION
 This is a brute force algorithm that enables the user to analyze a connectivity matrix extrapolated by fMRI.
 The algorithm has three functions:
